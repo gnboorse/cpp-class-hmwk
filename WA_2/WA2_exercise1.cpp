@@ -130,6 +130,6 @@ void addArrays(int* first_array,
 	for (int i = 0; i < total_length; i++)
 	{
 		//assign to the value at (dereferenced location of pointer + i)
-		*(&third_array[i]) = *(&first_array[i]) + *(&second_array[i]);
+		third_array[i] = first_array[i] + second_array[i];
 	}
 }

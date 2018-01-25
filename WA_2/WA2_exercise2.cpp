@@ -6,69 +6,105 @@ Compiled using g++ on CentOS 7 Linux
 
 Use:
 
-g++ -std=c++0x WA1_exercise2.cpp -o WA1exercise2
+g++ -std=c++0x WA2_exercise2.cpp -o WA2exercise2
 ./WAexercise2
 
 
 Output:
 
-[gboorse@localhost WA_1]$ ./WA1exercise2
-Enter a number in the range 1-5: 5
-You entered the number five
+[gboorse@localhost WA_1]$ ./WA2exercise2
+Enter a numberic score: 86
+You entered the score of 86 and earned a grade of B. Good work!
+
+[gboorse@localhost WA_1]$ ./WA2exercise2
+Enter a numberic score: 99
+You entered the score of 99 and earned a grade of A. Excellent!
+
 
 */
 
 #include <iostream>
-#include <string>
+
 using namespace std;
 
 
-string nameCheck(int num);
+void getScore(int* score);
+void printGrade(int score);
 
 int main()
 {
 
-	int num = 0;
+	int my_score;
 
-	cout << "Enter a number in the range 1-5: ";
+	getScore(&my_score);
 
-	cin >> num;
-
-	if (num > 0 && num < 6)
-	{
-		cout << "You entered the number " << nameCheck(num) << endl;
-	}
-	else
-	{
-		cout << "You entered a number outside the range 1-5." << endl;
-	}
+	printGrade(my_score);
 }
 
-string nameCheck(int num)
+// get input into pointer at &score
+void getScore(int* score)
 {
+	cout << "Enter a numberic score: ";
+	cin >> *score; // read into value
+	cout << "You entered the score of " << *score << "% and "; //print value
+}
 
-	if (num == 1)
+
+//find the char representation of calculated score
+void printGrade(int score)
+{
+	char calculated;
+	if (score > 100)
 	{
-		return "one";
+		calculated = 'E';
 	}
-	else if (num == 2)
+	else if (score >= 90) // A
 	{
-		return "two";
+		calculated = 'A';
 	}
-	else if (num == 3)
+	else if (score >= 80) // B
 	{
-		return "three";
+		calculated = 'B';
 	}
-	else if (num == 4)
+	else if (score >= 70) // C
 	{
-		return "four";
+		calculated = 'C';
 	}
-	else if (num == 5)
+	else if (score >= 60) // D
 	{
-		return "five";
+		calculated = 'D';
+	}
+	else if (score >= 0) // F
+	{
+		calculated = 'F';
 	}
 	else
 	{
-		return "bad entry";
+		calculated = 'E';
 	}
+	
+	//output the letter grade
+	cout << "earned a grade of " << calculated << ". ";
+	switch (calculated) //print a message
+	{
+		case 'A':
+			cout << "Excellent!";
+			break;
+		case 'B':
+			cout << "Good work!";
+			break;
+		case 'C':
+			cout << "Okay.";
+			break;
+		case 'D':
+			cout << "You passed.";
+			break;
+		case 'F':
+			cout << "Dishonor on your family."; //life's tough
+			break;
+		default:
+			cout << "Invalid input!";
+	}
+	cout << endl; //new line
+
 }
