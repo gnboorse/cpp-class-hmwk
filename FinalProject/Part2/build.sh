@@ -1,0 +1,1 @@
+g++ -std=c++11 FinalProjectPart2.cpp -o FinalProjectPart2

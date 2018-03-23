@@ -8,3 +8,5 @@ In each folder are individual READMEs describing what each assignment does.
 
 Run `make build` to build all of the projects or run `./build.sh` in each individual directory.
 
+me
+
