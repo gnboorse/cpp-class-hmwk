@@ -63,8 +63,8 @@ int main()
 		this_thread::sleep_for(chrono::milliseconds(SLEEP_AMOUNT));
 
 		//comment out these two if you just want to watch
-		// cout << "Press Enter to continue: ";
-		// cin.get();
+		cout << "Press Enter to continue: ";
+		cin.get();
 
 		cout << endl;
 
